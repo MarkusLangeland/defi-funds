@@ -1,4 +1,54 @@
-:root {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+body {
+  /* background-color: black;
+  height: 100vh; */
+  /* margin: 0rem; */
+  overflow: hidden; 
+}
+
+
+#blob {
+  background-color: white;
+  height: 30vmax;
+  aspect-ratio: 1;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: linear-gradient(to right, aquamarine, mediumpurple);
+  animation: rotate 20s infinite;
+  opacity: 0.8;
+}
+
+#blur {
+  height: 100dvh;
+  width: 100vw;
+  position: absolute;
+  z-index: 2;
+  backdrop-filter: blur(12vmax);
+}
+
+@keyframes rotate {
+  from {
+    rotate: 0deg;
+  }
+  
+  50% {
+    scale: 1 1.5;
+  }
+  
+  to {
+    rotate: 360deg;
+  }
+}
+
+/* :root {
   --max-width: 1100px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
@@ -104,4 +154,4 @@ a {
   html {
     color-scheme: dark;
   }
-}
+} */
