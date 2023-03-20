@@ -30,10 +30,10 @@ ChartJS.register(
   Filler
 );
 
-export const metadata = {
-  title: "Discover Funds",
-  description: "DefiFunds",
-};
+// export const metadata = {
+//   title: "Discover Funds",
+//   description: "DefiFunds",
+// };
 
 export default function DiscoverFunds() {
   // throw new Error("failed to load data")

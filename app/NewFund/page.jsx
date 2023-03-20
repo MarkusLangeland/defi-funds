@@ -3,12 +3,12 @@
 import React, { useState } from "react";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import {
-  RadixDappToolkit,
+  // RadixDappToolkit,
   ManifestBuilder,
   Decimal,
   Bucket,
   Expression,
-  ResourceAddress,
+  // ResourceAddress,
   String,
 } from "@radixdlt/radix-dapp-toolkit";
 import { addr } from "public/helperFunctions.js";
@@ -46,8 +46,8 @@ export default function NewFund() {
       ])
       .build()
       .toString();
-    console.log("HandleSubmit");
-    console.log("Manifest: ", manifest);
+    // console.log("HandleSubmit");
+    // console.log("Manifest: ", manifest);
     const { commitReceipt } = await sendManifest(manifest);
   }
 

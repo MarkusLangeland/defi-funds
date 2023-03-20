@@ -2,9 +2,8 @@ body {
   background-color: white;
   height: 100vh;
   margin: 0rem;
-  overflow: hidden; 
+  overflow: hidden;
 }
-
 
 #blob {
   background-color: white;
@@ -32,11 +31,11 @@ body {
   from {
     rotate: 0deg;
   }
-  
+
   50% {
     scale: 1 1.5;
   }
-  
+
   to {
     rotate: 360deg;
   }

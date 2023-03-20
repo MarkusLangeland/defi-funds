@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import "./globals.css";
 import Link from "next/link";
 
-
 export default function Home() {
   //Mouse Tracking:
   useEffect(() => {
@@ -37,22 +36,25 @@ export default function Home() {
               Crypto investing made easy. Let fundmangers do the trading for
               you.
             </p>
-            <Link
-              className="bg-primary p-2 rounded-md text-white"
-              href="DiscoverFunds"
-            >
-              Discover Funds
-            </Link>
-            <Link
-              className=" p-2 rounded-md border border-primary ml-2"
-              href="NewFund"
-            >
-              Create your own Fund
-            </Link>
+            <div className="flex items-center flex-col sm:flex-row gap-2">
+              <Link
+                className="bg-primary p-2 rounded-md text-white"
+                href="DiscoverFunds"
+              >
+                Discover Funds
+              </Link>
+              <Link
+                className=" p-2 rounded-md border border-primary"
+                href="NewFund"
+              >
+                Create your own Fund
+              </Link>
+            </div>
           </div>
-          {/* <div className="flex justify-center items-center mt-60">
-            <div>asd</div>
-          </div> */}
+
+          <div className="flex justify-center items-center mt-60">
+            <div>LandingPage Not compleated yet</div>
+          </div>
         </div>
       </div>
       <div id="blob"></div>
