@@ -9,10 +9,10 @@ import { usePathname } from "next/navigation";
 // import { rdt } from "public/radixConne ct.js";
 import { motion, AnimatePresence } from "framer-motion";
 
-export const metadata = {
-  title: "DefiFunds",
-  description: "DefiFunds",
-};
+// export const metadata = {
+//   title: "DefiFunds",
+//   description: "DefiFunds",
+// };
 
 export default function RootLayout({ children }) {
   const pathname = usePathname();
