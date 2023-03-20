@@ -27,7 +27,7 @@ body {
 }
 
 #blur {
-  height: 100dvh;
+  height: 200dvh;
   width: 100vw;
   position: absolute;
   z-index: 2;
@@ -119,3 +119,5 @@ input:invalid {
 
 }
 
+
+ 

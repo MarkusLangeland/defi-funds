@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 // import Image from "next/image";
 import { FaChevronDown } from "react-icons/fa";
@@ -37,6 +38,7 @@ export const metadata = {
 export default function DiscoverFunds() {
   // throw new Error("failed to load data")
   const [choseFundOpen, setChoseFundOpen] = useState(false);
+  const test = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
   return (
     <div className="w-screen pt-20 flex justify-center items-center pb-10 flex-col">
       <div className=" flex justify-between items-center w-11/12">
@@ -89,275 +91,105 @@ export default function DiscoverFunds() {
           <p className="w-4/12 text-gray-400">Change</p>
         </div>
 
-        <div className="w-full flex justify-center items-center border border-gray-100 h-16 rounded-lg shadow-md pl-10 mb-3">
-          <p className="w-1/12">1</p>
-          <p className="w-4/12">Degen Fund</p>
-          <p className="w-3/12">$ 200M</p>
-          <div className="w-4/12 flex items-center gap-2">
-            <p className=" text-green-300 font-semibold h-full">2%</p>
-            <IoTrendingUpOutline
-              size={28}
-              className="text-green-300 font-semibold"
-            />
-            <div className="w-3/5 h-32 mt-4">
-              <Line
-                data={{
-                  labels: [
-                    "wqwe",
-                    "wqwe",
-                    "wqwe",
-                    "wqwe",
-                    "wqwe",
-                    "wqwe",
-                    "wqwe",
-                    "wqwe",
-                    "wqwe",
-                    "wqwe",
-                    "wqwe",
-                    "wqwe",
-                    "wqwe",
-                  ],
-                  datasets: [
-                    {
-                      label: "My First Dataset",
-                      data: [
-                        65, 59, 80, 81, 56, 55, 40, 65, 59, 80, 81, 56, 55, 40,
+        {test.map((currElement, index) => {
+          return (
+            <motion.div
+              initial={{ opacity: 0, x: -5 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.1 * index }}
+              className="w-full flex justify-center items-center border border-gray-100 h-16 rounded-lg shadow-md pl-10 mb-3"
+            >
+              <p className="w-1/12">{index}</p>
+              <p className="w-4/12">Degen Fund</p>
+              <p className="w-3/12">$ 200M</p>
+              <div className="w-4/12 flex items-center gap-2">
+                <p className=" text-green-300 font-semibold h-full">2%</p>
+                <IoTrendingUpOutline
+                  size={28}
+                  className="text-green-300 font-semibold"
+                />
+                <div className="w-3/5 h-32 mt-4">
+                  <Line
+                    data={{
+                      labels: [
+                        "wqwe",
+                        "wqwe",
+                        "wqwe",
+                        "wqwe",
+                        "wqwe",
+                        "wqwe",
+                        "wqwe",
+                        "wqwe",
+                        "wqwe",
+                        "wqwe",
+                        "wqwe",
+                        "wqwe",
+                        "wqwe",
                       ],
-                      fill: false,
-                      borderColor: "rgb(134 239 172)",
-                    },
-                  ],
-                }}
-                options={{
-                  responsive: true,
-                  maintainAspectRatio: false,
-                  elements: {
-                    point: {
-                      radius: 0,
-                    },
-                    line: {
-                      tension: 0.4,
-                    },
-                  },
-                  scales: {
-                    x: {
-                      ticks: {
-                        color: "rgb(255,255,255,0.0)",
-                        beginAtZero: true,
-                      },
-                      grid: {
-                        display: false,
-                      },
-                      border: {
-                        display: false,
-                      },
-                    },
-                    y: {
-                      ticks: {
-                        color: "rgb(255,255,255,0.0)",
-                        beginAtZero: true,
-                      },
-                      grid: {
-                        display: false,
-                      },
-                      border: {
-                        display: false,
-                      },
-                    },
-                  },
-                  plugins: {
-                    legend: {
-                      display: false,
-                    },
-                    title: {
-                      display: false,
-                    },
-                  },
-                }}
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="w-full flex justify-center items-center border border-gray-100 h-16 rounded-lg shadow-md pl-10 mb-3">
-          <p className="w-1/12">1</p>
-          <p className="w-4/12">Degen Fund</p>
-          <p className="w-3/12">$ 200M</p>
-          <div className="w-4/12 flex items-center gap-2">
-            <p className=" text-green-300 font-semibold h-full">2%</p>
-            <IoTrendingUpOutline
-              size={28}
-              className="text-green-300 font-semibold"
-            />
-            <div className="w-3/5 h-32 mt-4">
-              <Line
-                data={{
-                  labels: [
-                    "wqwe",
-                    "wqwe",
-                    "wqwe",
-                    "wqwe",
-                    "wqwe",
-                    "wqwe",
-                    "wqwe",
-                    "wqwe",
-                    "wqwe",
-                    "wqwe",
-                    "wqwe",
-                    "wqwe",
-                    "wqwe",
-                  ],
-                  datasets: [
-                    {
-                      label: "My First Dataset",
-                      data: [
-                        65, 59, 80, 81, 56, 55, 40, 65, 59, 80, 81, 56, 55, 40,
+                      datasets: [
+                        {
+                          label: "My First Dataset",
+                          data: [
+                            65, 59, 80, 81, 56, 55, 40, 65, 59, 80, 81, 56, 55,
+                            40,
+                          ],
+                          fill: false,
+                          borderColor: "rgb(134 239 172)",
+                        },
                       ],
-                      fill: false,
-                      borderColor: "rgb(134 239 172)",
-                    },
-                  ],
-                }}
-                options={{
-                  responsive: true,
-                  maintainAspectRatio: false,
-                  elements: {
-                    point: {
-                      radius: 0,
-                    },
-                    line: {
-                      tension: 0.4,
-                    },
-                  },
-                  scales: {
-                    x: {
-                      ticks: {
-                        color: "rgb(255,255,255,0.0)",
-                        beginAtZero: true,
+                    }}
+                    options={{
+                      responsive: true,
+                      maintainAspectRatio: false,
+                      elements: {
+                        point: {
+                          radius: 0,
+                        },
+                        line: {
+                          tension: 0.4,
+                        },
                       },
-                      grid: {
-                        display: false,
+                      scales: {
+                        x: {
+                          ticks: {
+                            color: "rgb(255,255,255,0.0)",
+                            beginAtZero: true,
+                          },
+                          grid: {
+                            display: false,
+                          },
+                          border: {
+                            display: false,
+                          },
+                        },
+                        y: {
+                          ticks: {
+                            color: "rgb(255,255,255,0.0)",
+                            beginAtZero: true,
+                          },
+                          grid: {
+                            display: false,
+                          },
+                          border: {
+                            display: false,
+                          },
+                        },
                       },
-                      border: {
-                        display: false,
+                      plugins: {
+                        legend: {
+                          display: false,
+                        },
+                        title: {
+                          display: false,
+                        },
                       },
-                    },
-                    y: {
-                      ticks: {
-                        color: "rgb(255,255,255,0.0)",
-                        beginAtZero: true,
-                      },
-                      grid: {
-                        display: false,
-                      },
-                      border: {
-                        display: false,
-                      },
-                    },
-                  },
-                  plugins: {
-                    legend: {
-                      display: false,
-                    },
-                    title: {
-                      display: false,
-                    },
-                  },
-                }}
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="w-full flex justify-center items-center border border-gray-100 h-16 rounded-lg shadow-md pl-10 mb-3">
-          <p className="w-1/12">1</p>
-          <p className="w-4/12">Degen Fund</p>
-          <p className="w-3/12">$ 200M</p>
-          <div className="w-4/12 flex items-center gap-2">
-            <p className=" text-green-300 font-semibold h-full">2%</p>
-            <IoTrendingUpOutline
-              size={28}
-              className="text-green-300 font-semibold"
-            />
-            <div className="w-3/5 h-32 mt-4">
-              <Line
-                data={{
-                  labels: [
-                    "wqwe",
-                    "wqwe",
-                    "wqwe",
-                    "wqwe",
-                    "wqwe",
-                    "wqwe",
-                    "wqwe",
-                    "wqwe",
-                    "wqwe",
-                    "wqwe",
-                    "wqwe",
-                    "wqwe",
-                    "wqwe",
-                  ],
-                  datasets: [
-                    {
-                      label: "My First Dataset",
-                      data: [
-                        65, 59, 80, 81, 56, 55, 40, 65, 59, 80, 81, 56, 55, 40,
-                      ],
-                      fill: false,
-                      borderColor: "rgb(134 239 172)",
-                    },
-                  ],
-                }}
-                options={{
-                  responsive: true,
-                  maintainAspectRatio: false,
-                  elements: {
-                    point: {
-                      radius: 0,
-                    },
-                    line: {
-                      tension: 0.4,
-                    },
-                  },
-                  scales: {
-                    x: {
-                      ticks: {
-                        color: "rgb(255,255,255,0.0)",
-                        beginAtZero: true,
-                      },
-                      grid: {
-                        display: false,
-                      },
-                      border: {
-                        display: false,
-                      },
-                    },
-                    y: {
-                      ticks: {
-                        color: "rgb(255,255,255,0.0)",
-                        beginAtZero: true,
-                      },
-                      grid: {
-                        display: false,
-                      },
-                      border: {
-                        display: false,
-                      },
-                    },
-                  },
-                  plugins: {
-                    legend: {
-                      display: false,
-                    },
-                    title: {
-                      display: false,
-                    },
-                  },
-                }}
-              />
-            </div>
-          </div>
-        </div>
+                    }}
+                  />
+                </div>
+              </div>
+            </motion.div>
+          );
+        })}
       </div>
     </div>
   );
