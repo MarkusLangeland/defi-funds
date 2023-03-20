@@ -4,10 +4,6 @@ import { useEffect } from "react";
 import "./globals.css";
 import Link from "next/link";
 
-export const metadata = {
-  title: "DefiFunds",
-  description: "DefiFunds",
-};
 
 export default function Home() {
   //Mouse Tracking:
