@@ -190,6 +190,17 @@ export async function updateAll(walletAddr) {
   await Promise.all(promises);
 }
 
+export async function updateAll1() {
+  await updateFunds();
+  const funds = getFunds();
+  const fundAddresses = funds.map((fund) => fund[0]);
+  const promises = [
+    updateFundsInfo(fundAddresses),
+    updateTokenPrices(),
+  ];
+  await Promise.all(promises);
+}
+
 ///////////////////////////////////
 ////////////// Get stuff //////////
 ///////////////////////////////////

@@ -59,7 +59,7 @@ export default function NewFund() {
         <div className="text-semiboldbg-gray-100 flex justify-center align-middle text-3xl mt-10">
           <h1>Create new fund</h1>
         </div>
-        <div className="">
+        <div>
           <div className="flex align-middle justify-between sm:flex-row flex-col mb-10 mt-10 ml-6 mr-6 gap-5">
             <label className="flex flex-col sm:w-1/2 w-full">
               Fund Name

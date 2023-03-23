@@ -1,11 +1,18 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 // import Image from "next/image";
 import { FaChevronDown } from "react-icons/fa";
 import { IoTrendingUpOutline } from "react-icons/io5";
-
+import {
+  getFundTvl,
+  getFunds,
+  getFundImage,
+  fetchFundInfo,
+} from "public/apiDataFetcher";
+import { accountAddress } from "public/radixConnect.js";
+// import axios from "axios";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -18,6 +25,12 @@ import {
   Filler,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
+import { updateAll1 } from "public/apiDataFetcher.js";
+import {
+  getTokenPrices,
+  fetchRadixPrice,
+  fetchFunds,
+} from "public/apiDataFetcher.js";
 
 ChartJS.register(
   CategoryScale,
@@ -35,8 +48,45 @@ ChartJS.register(
 //   description: "DefiFunds",
 // };
 
+export function getFundsSortedTvl() {
+  const funds = getFunds();
+  const tvls = [];
+
+  for (const fund of funds) {
+    const fundAddr = fund[0];
+    const tvl = getFundTvl(fundAddr);
+    tvls.push([fundAddr, getFundName(fundAddr), getFundImage(fundAddr), tvl]);
+  }
+
+  const sortedTvls = tvls.sort((a, b) => b[3] - a[3]);
+  return sortedTvls;
+}
+
 export default function DiscoverFunds() {
-  // throw new Error("failed to load data")
+  const [funds, setFunds] = useState([]);
+
+  useEffect(() => {
+    async function test() {
+      let funds = await fetchFunds();
+      const promises = funds.map((fundAddr) => fetchFundInfo(fundAddr));
+      const results = await Promise.all(promises);
+
+      for (let i = 0; i < funds.length; i++) {
+        console.log((funds[i], results[i]));
+      }
+
+      // await updateAll1();
+      // let test = await fetchRadixPrice();
+      // console.log("asdfasd", test);
+      // let test2 = await fetchFunds();
+      // console.log("asdfasd", test2);
+    }
+    test();
+  }, []);
+  // console.log(getFundsSortedTvl());
+
+  // console.log("sadasd", getFunds());
+  // console.log("sadasd", getTokenPrices());
   const [choseFundOpen, setChoseFundOpen] = useState(false);
   const test = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
   return (
@@ -94,6 +144,7 @@ export default function DiscoverFunds() {
         {test.map((currElement, index) => {
           return (
             <motion.div
+              key={index}
               initial={{ opacity: 0, x: -5 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.1 * index }}

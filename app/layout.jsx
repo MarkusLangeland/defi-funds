@@ -9,13 +9,23 @@ import { usePathname } from "next/navigation";
 import { rdt } from "public/radixConnect.js";
 import { motion, AnimatePresence } from "framer-motion";
 
+import { getFundManagerFunds } from "public/manageFundFunctions.js";
+import { updateAll1 } from "public/apiDataFetcher.js";
+import { accountAddress } from "public/radixConnect.js";
+import { useEffect } from "react";
+
 // export const metadata = {
 //   title: "DefiFunds",
 //   description: "DefiFunds",
 // };
 
+// await updateAll(accountAddress);
+// console.log("asdasdasdasdasd");
+// console.log(getFundManagerFunds().size);
+
 export default function RootLayout({ children }) {
   const pathname = usePathname();
+
   function Footer() {
     return (
       <div className="bg-gray-100 h-fit flex align-middle justify-around">
