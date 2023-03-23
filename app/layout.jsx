@@ -6,7 +6,7 @@ import Image from "next/image";
 import { AiFillBuild, AiOutlinePieChart } from "react-icons/ai";
 import { RiFundsLine } from "react-icons/ri";
 import { usePathname } from "next/navigation";
-// import { rdt } from "public/radixConne ct.js";
+import { rdt } from "public/radixConnect.js";
 import { motion, AnimatePresence } from "framer-motion";
 
 // export const metadata = {
@@ -16,7 +16,6 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function RootLayout({ children }) {
   const pathname = usePathname();
-
   function Footer() {
     return (
       <div className="bg-gray-100 h-fit flex align-middle justify-around">

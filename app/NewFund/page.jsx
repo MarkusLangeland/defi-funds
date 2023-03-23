@@ -11,7 +11,8 @@ import {
   // ResourceAddress,
   String,
 } from "@radixdlt/radix-dapp-toolkit";
-import { addr } from "public/helperFunctions.js";
+// import { addr } from "public/helperFunctions.js";
+import { xrdAddr } from "public/apiDataFetcher.js";
 import { sendManifest, accountAddress } from "public/radixConnect.js";
 import { DefiFundsComponentAddress } from "public/radixConnect.js";
 
@@ -31,12 +32,13 @@ export default function NewFund() {
     // console.log(DefiFundsComponentAddress)
 
     let manifest = new ManifestBuilder()
-      .withdrawFromAccountByAmount(accountAddress, initialSupply, addr.XRD)
-      .takeFromWorktopByAmount(initialSupply, addr.XRD, "xrd_bucket")
+      .withdrawFromAccountByAmount(accountAddress, initialSupply, xrdAddr)
+      .takeFromWorktopByAmount(initialSupply, xrdAddr, "xrd_bucket")
       .callMethod(DefiFundsComponentAddress, "new_fund", [
         String(fundName),
         Bucket("xrd_bucket"),
         Decimal(initialSupply),
+        Decimal(depositFee),
         String(description),
         String(imagelink),
         String(websitelink),

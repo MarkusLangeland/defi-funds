@@ -1,3 +1,4 @@
+
 import {
     RadixDappToolkit,
     ManifestBuilder,
@@ -6,40 +7,6 @@ import {
     Expression,
     ResourceAddress,
   } from "@radixdlt/radix-dapp-toolkit";
-  
-
-
-export let DefiFundsComponentAddress ="component_tdx_b_1qte8y8v9gttjqcpw3q5060u34mpm2y7yxf62d096k64sd3yruu";
-export let DefiFundsAdminBadge ="resource_tdx_b_1qz8p4nd5atjfh63nj0ecuqnlv350f6h27nltp5uxqmwsdrdwdk";
-
-
-  // Configure the connect button
-
-
-  
-  export let accountAddress;
-  export const rdt = RadixDappToolkit(
-      {
-          dAppDefinitionAddress:
-          "account_tdx_b_1pplsymjqavhw82vkw69h6zkj5r2gzrh47lvdd0s8h0jseu8sqt",
-          dAppName: "defifunds",
-        },
-        (requestData) => {
-            requestData({
-                accounts: { quantifier: "atLeast", quantity: 1 },
-            }).map(({ data: { accounts } }) => {
-                // add accounts to dApp application state
-                console.log("account data: ", accounts);
-                // document.getElementById("accountName").innerText = accounts[0].label;
-                // document.getElementById("accountAddress").innerText = accounts[0].address;
-                accountAddress = accounts[0].address;
-                
-            });
-        },
-        { networkId: 11 }
-        );
-        console.log("dApp Toolkit: ", rdt);
-  
   // There are four classes exported in the Gateway-SDK These serve as a thin wrapper around the gateway API
   // API docs are available @ https://betanet-gateway.redoc.ly/
   import {
@@ -48,6 +15,64 @@ export let DefiFundsAdminBadge ="resource_tdx_b_1qz8p4nd5atjfh63nj0ecuqnlv350f6h
     StatusApi,
     StreamApi,
   } from "@radixdlt/babylon-gateway-api-sdk";
+
+
+export let DefiFundsComponentAddress =  "component_tdx_b_1qff3l8hj4le2nppf6yzgn293rj9g7yyu7v079gfq4h5sv60qxz";
+export let DefiFundsAdminBadge =  "resource_tdx_b_1qpf3l8hj4le2nppf6yzgn293rj9g7yyu7v079gfq4h5sxmawre";
+
+  // Configure the connect button
+
+
+
+  export let accountAddress;
+
+
+
+// export function rdt {
+  const rdt = RadixDappToolkit(
+    {
+        dAppDefinitionAddress:
+        "account_tdx_b_1pplsymjqavhw82vkw69h6zkj5r2gzrh47lvdd0s8h0jseu8sqt",
+        dAppName: "defifunds",
+      },
+      (requestData) => {
+        
+          requestData({
+              accounts: { quantifier: "atLeast", quantity: 1 },
+          }).map(({ data: { accounts } }) => {
+              // add accounts to dApp application state
+              // console.log("account data: ", accounts);
+              accountAddress = accounts[0].address;
+              
+          });
+      },
+      { networkId: 11 }
+      );
+  // return rdt
+// }
+
+
+  // export const rdt = RadixDappToolkit(
+  //     {
+  //         dAppDefinitionAddress:
+  //         "account_tdx_b_1pplsymjqavhw82vkw69h6zkj5r2gzrh47lvdd0s8h0jseu8sqt",
+  //         dAppName: "defifunds",
+  //       },
+  //       (requestData) => {
+          
+  //           requestData({
+  //               accounts: { quantifier: "atLeast", quantity: 1 },
+  //           }).map(({ data: { accounts } }) => {
+  //               // add accounts to dApp application state
+  //               // console.log("account data: ", accounts);
+  //               accountAddress = accounts[0].address;
+                
+  //           });
+  //       },
+  //       { networkId: 11 }
+  //       );
+  //       // console.log("dApp Toolkit: ", rdt);
+  
   
   // Instantiate Gateway SDK
   const transactionApi = new TransactionApi();
@@ -85,13 +110,4 @@ export let DefiFundsAdminBadge ="resource_tdx_b_1qz8p4nd5atjfh63nj0ecuqnlv350f6h
     console.log("Committed Details Receipt", commitReceipt);
   
     return { status, commitReceipt };
-  }
-  
-  // ************ Show Recript*************
-  export function showReceipt(commitReceipt, fieldId) {
-    document.getElementById(fieldId).innerText = JSON.stringify(
-      commitReceipt.details.receipt,
-      null,
-      2
-    );
   }

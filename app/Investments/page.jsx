@@ -557,12 +557,12 @@ export default function Investments() {
                 </div>
               </div>
 
-              <div className="flex justify-around items-center mt-5">
+              {/* <div className="flex justify-around items-center mt-5">
                 <div className="flex gap-2 pt-10">
                   <p className="font-semibold text-sm">Edit fund</p>
                   <AiFillEdit className="text-primary" />
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
